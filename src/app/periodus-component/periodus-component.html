@@ -1,0 +1,34 @@
+<h2>Elemek</h2>
+
+<table class="table table-striped table-success">
+    <thead>
+        <tr>
+            <th>Név</th>
+            <th>Vegyjel</th>
+            <th>Rendszám</th>
+            <th>Atomtömeg</th>
+            <th>Állapot</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(elem of kemiaiElemek(); track elem.rendszam) {
+            <tr>
+                <td>
+                    {{elem.nev}}
+                    @if(elem.rendszam < 5) {
+                        <span class="badge bg-success">Könnyű elem</span>
+                    }
+                </td>
+                <td>{{elem.vegyjel}}</td>
+                <td>{{elem.rendszam}}</td>
+                <td>{{elem.atomtomeg}}</td>
+                <td>{{elem.allapot}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div>
+    Gáz állapotú elemek: {{ gazAllapotuElemek().length }}
+</div>
